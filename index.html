@@ -3,13 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Learning New Things</title>
+    <style>
+        :root {
+            --bg-dark: #0f1419;
+            --accent: #38bdf8;
+            --chess-light: #f0d9b5;
+            --chess-dark: #b58863;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background: var(--accent);
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+        .chess-board {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+        }
+        .chess-board div {
+            width: 50px;
+            height: 50px;
+        }
+        .light {
+            background-color: var(--chess-light);
+        }
+        .dark {
+            background-color: var(--chess-dark);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Learning New Things</h1>
-    <script src="chess.js"></script>
-    <script src="math.js"></script>
-    <script src="app.js"></script>
+    <header>
+        <h1>Learning New Things</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#chess">Chess</a>
+            <a href="#math">Math</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Learning New Things</h2>
+        <p>Choose a topic to learn!</p>
+    </section>
+
+    <section id="chess">
+        <h2>Chess</h2>
+        <div class="chess-board">
+            <!-- Chess pieces will be rendered here -->
+        </div>
+        <div>
+            <button onclick="learnPieces()">Learn Pieces</button>
+            <button onclick="playMatch()">Play Match</button>
+            <button onclick="practiceBoard()">Practice Board</button>
+            <button onclick="puzzles()">Puzzles</button>
+        </div>
+    </section>
+
+    <section id="math">
+        <h2>Math Practice</h2>
+        <p>Select operation and difficulty to practice math.</p>
+        <!-- Math practice elements will be here -->
+    </section>
+
+    <script>
+        function initChessBoard() {
+            const board = document.querySelector('.chess-board');
+            for (let i = 0; i < 64; i++) {
+                const square = document.createElement('div');
+                square.classList.add((Math.floor(i / 8) + i) % 2 === 0 ? 'light' : 'dark');
+                board.appendChild(square);
+            }
+        }
+
+        function learnPieces() {
+            alert('Learning about chess pieces...');
+            // Additional logic for learning pieces
+        }
+
+        function playMatch() {
+            alert('Playing a chess match...');
+            // Additional logic for playing a match
+        }
+
+        function practiceBoard() {
+            alert('Practicing on the board...');
+            // Additional logic for practice
+        }
+
+        function puzzles() {
+            alert('Accessing chess puzzles...');
+            // Generating and handling puzzles
+        }
+
+        initChessBoard();
+    </script>
 </body>
 </html>
