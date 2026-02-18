@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning New Things</title>
+    <title>Learning New Things App</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        header { background: #333; color: #fff; padding: 10px; text-align: center; }
-        #chessboard { display: grid; grid-template-columns: repeat(8, 1fr); width: 400px; margin: 20px auto; }
-        .square { width: 50px; height: 50px; }
-        .black { background: #888; }
-        .white { background: #fff; }
-        #math-practice { margin: 20px auto; text-align: center; }
+        /* CSS from responsive_chess_math.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Add more CSS styles as needed */
     </style>
 </head>
 <body>
     <header>
         <h1>Learning New Things</h1>
-        <nav>
-            <a href="#chess">Chess</a> | 
-            <a href="#math">Math Practice</a>
-        </nav>
     </header>
-    <section id="chess">
+    <div class="container">
         <h2>Chess Game</h2>
-        <div id="chessboard"></div>
-    </section>
-    <section id="math-practice">
+        <div id="chessBoard"></div>
         <h2>Math Practice</h2>
-        <input type="text" placeholder="Enter your answer" id="math-answer" />
-        <button onclick="generateQuestion()">New Question</button>
-        <p id="math-question"></p>
-    </section>
+        <div id="mathQuestions"></div>
+    </div>
     <script>
-        // Chessboard generation
-        const chessboard = document.getElementById('chessboard');
-        for (let i = 0; i < 8; i++) {
-            for (let j = 0; j < 8; j++) {
-                const square = document.createElement('div');
-                square.classList.add('square', (i + j) % 2 === 0 ? 'white' : 'black');
-                chessboard.appendChild(square);
-            }
+        // JavaScript from chess.js
+        const chessBoard = document.getElementById('chessBoard');
+        // Logic for chess game initialization
+        function initChess() {
+            // Chess board logic goes here
+            chessBoard.innerHTML = '<p>Chess board will be here.</p>';
         }
+        // Call the init function
+        initChess();
 
-        // Basic Math Practice
-        let currentAnswer;
-        function generateQuestion() {
-            const num1 = Math.floor(Math.random() * 10);
-            const num2 = Math.floor(Math.random() * 10);
-            currentAnswer = num1 + num2;
-            document.getElementById('math-question').innerText = `What is ${num1} + ${num2}?`;
+        // JavaScript from math_practice.html
+        const mathQuestions = document.getElementById('mathQuestions');
+        // Logic for math questions
+        function generateMathQuestions() {
+            mathQuestions.innerHTML = '<p>Math questions will be generated here.</p>';
         }
+        // Call the generate function
+        generateMathQuestions();
+
+        // JavaScript from app_navigation.html
+        // Logic for app navigation can go here
     </script>
 </body>
 </html>
